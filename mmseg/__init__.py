@@ -6,6 +6,8 @@ import mmengine
 from packaging.version import parse
 
 from .version import __version__, version_info
+from mmsegmentation.custom_hooks.custom_tensorboard_hook import CustomTensorboardLoggerHook
+
 
 MMCV_MIN = '2.0.0rc4'
 MMCV_MAX = '2.2.0'

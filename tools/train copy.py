@@ -9,9 +9,6 @@ from mmengine.logging import print_log
 from mmengine.runner import Runner
 
 from mmseg.registry import RUNNERS
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 
 
 def parse_args():
@@ -54,11 +51,18 @@ def parse_args():
     return args
 
 
-def main():
-    args = parse_args()
 
-    # load config
+
+def main():
+    # 加载配置文件
+    args = parse_args()
+    from mmengine.config import Config
+
+       
     cfg = Config.fromfile(args.config)
+
+    # # load config
+    # cfg = Config.fromfile(args.config)
     cfg.launcher = args.launcher
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
